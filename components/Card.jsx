@@ -1,4 +1,4 @@
-import React from 'react';
+
 import {View, Text, StyleSheet, TouchableOpacity, Button} from 'react-native';
 import Buttons from './Buttons';
 import uuid from 'react-native-uuid';
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 36,
     width: 536,
-    height: 820,
+    height: 896,
     padding: 24,
     margin: 32,
     shadowColor: '#000',
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: 'black',
-    marginBottom: 10,
+    marginBottom: 16,
     width: 400,
     textAlign: 'center',
   },
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   },
 
   buttonContainer: {
-    top: 40,
+    top: 60,
     // flex:1,
     flexDirection: 'row',
     // alignItem: 'centre',

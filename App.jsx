@@ -1,6 +1,7 @@
-import HomeScreen from "./screens/HomeScreen"
+
 import ConsentForm from './screens/ConsentForm';
 import SelectionScreen from './screens/SelectionScreen';
+import MainCameraScreen from './screens/MainCameraScreen';
 import { NavigationContainer } from "@react-navigation/native";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -29,6 +30,8 @@ function App() {
         <Stack.Screen name="ConsentForm" component={ConsentForm} />
 
         <Stack.Screen name="SelectionScreen" component={SelectionScreen} />
+
+        <Stack.Screen name="MainCameraScreen" component={MainCameraScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

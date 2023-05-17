@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+
+import {View, StyleSheet,ImageBackground} from 'react-native';
 import Card from '../components/Card';
 
 
@@ -11,19 +11,27 @@ function ConsentForm({navigation}) {
     'You may withdraw your consent for the collection, use and disclosure of your personal data fo the Purpose, at any point n ime, by sending your request to pdpa@kachaak.com.sg. However, please note that this may affect our administration of the Purpose to you. Your withdrawal wil be effective within 30 thirty) days of such a request.',
   ];
   return (
+    <ImageBackground
+          source={require('/home/oma/Android/testing/assets/linearBg.png')}
+          style={styles.backgroundImage}>
     <View style={styles.container}>
       <Card title={title} content={content} navigation={navigation} />
     </View>
+          </ImageBackground>
   );
 }
 
 
 
 const styles = StyleSheet.create({
-  container: {
+  backgroundImage: {
     flex: 1,
-    backgroundColor:"black",
+    resizeMode: 'cover', // or 'stretch' if you want the image to stretch to fill the container
   },
+  // container: {
+  //   flex: 1,
+  //   backgroundColor: 'gray',
+  // },
 });
 
 
