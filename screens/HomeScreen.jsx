@@ -20,9 +20,7 @@ function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-
-  },
+  container: {},
 });
 
-export default HomeScreen ;
+export default HomeScreen;

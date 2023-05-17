@@ -1,7 +1,5 @@
-
-import {View, StyleSheet,ImageBackground} from 'react-native';
+import {View, StyleSheet, ImageBackground} from 'react-native';
 import Card from '../components/Card';
-
 
 function ConsentForm({navigation}) {
   const title = 'Consent for Collection, Use and Discloure of personal Data';
@@ -12,16 +10,14 @@ function ConsentForm({navigation}) {
   ];
   return (
     <ImageBackground
-          source={require('/home/oma/Android/testing/assets/linearBg.png')}
-          style={styles.backgroundImage}>
-    <View style={styles.container}>
-      <Card title={title} content={content} navigation={navigation} />
-    </View>
-          </ImageBackground>
+      source={require('./../assets/linearBg.png')}
+      style={styles.backgroundImage}>
+      <View style={styles.container}>
+        <Card title={title} content={content} navigation={navigation} />
+      </View>
+    </ImageBackground>
   );
 }
-
-
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -33,6 +29,5 @@ const styles = StyleSheet.create({
   //   backgroundColor: 'gray',
   // },
 });
-
 
 export default ConsentForm;

@@ -6,42 +6,34 @@ import {
   StyleSheet,
   Text,
   SafeAreaView,
+  Linking,
 } from 'react-native';
 // import ImagePicker from 'react-native-image-picker';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import {useCameraDevices} from 'react-native-vision-camera';
 import {Camera} from 'react-native-vision-camera';
 
 function MainCameraScreen({navigation}) {
-  const [cameraPermission, setCameraPermission] = useState();
-  const [devices_, setDevices_] = useState();
-  console.log(`Camera permission status: ${cameraPermission}`);
+  const camera = useRef(null);
+  const devices = useCameraDevices();
+  const device = devices.front;
+
   useEffect(() => {
-      (async () => {
-      const cameraPermission = await Camera.getCameraPermissionStatus();
-      console.log({cameraPermission: cameraPermission});
-      if (!cameraPermission) {
-        const newCameraPermission = await Camera.requestCameraPermission();
-        console.log({newCameraPermission: newCameraPermission});
-      }
-      //   const microphonePermission = await Camera.getMicrophonePermissionStatus();
-      const devices = await Camera.getAvailableCameraDevices();
-      setDevices_(devices);
-      //   console.log(devices_);
-      setCameraPermission('here is the the permission', cameraPermission);
-    })();
+    const getPermissions = async () => {
+      const permission = await Camera.requestCameraPermission();
+      console.log(`Camera permission status = ${permission}`);
+      if (permission === 'denied') await Linking.openSettings();
+    };
+    getPermissions();
   }, []);
 
-  //   const devices = useCameraDevices();
-  //   const cameraDevice = devices.front;
+  if (device == null) return <Text>camera not available</Text>;
 
-  if (devices_ === null || devices_ === undefined)
-    return <Text>loading...</Text>;
-  console.log(devices_);
   return (
     <Camera
-      style={StyleSheet.absoluteFill}
-      device={devices_?.device?.front}
+      ref={camera}
+      style={styles.absoluteFill}
+      device={device}
       isActive={true}
     />
   );

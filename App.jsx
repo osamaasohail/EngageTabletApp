@@ -1,11 +1,8 @@
-
 import ConsentForm from './screens/ConsentForm';
 import SelectionScreen from './screens/SelectionScreen';
 import MainCameraScreen from './screens/MainCameraScreen';
-import { NavigationContainer } from "@react-navigation/native";
+import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
-
 
 import {
   SafeAreaView,
@@ -15,10 +12,10 @@ import {
   Text,
   useColorScheme,
   View,
-  Image
+  Image,
 } from 'react-native';
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
 function App() {
   return (
@@ -38,9 +35,7 @@ function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-
-  },
+  container: {},
 });
 
 export default App;
