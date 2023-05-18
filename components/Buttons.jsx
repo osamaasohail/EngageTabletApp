@@ -3,24 +3,21 @@ import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 const Buttons = () => {
   return (
-    
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Button 1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Button 2</Text>
-        </TouchableOpacity>
-      </View>
-    
+    <View style={styles.buttonContainer}>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Button 1</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Button 2</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-
   buttonContainer: {
-        flexDirection: 'row',
-        alignItems:"centre",
+    flexDirection: 'row',
+    alignItems: 'centre',
     // justifyContent: 'space-between',
   },
   button: {

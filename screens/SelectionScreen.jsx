@@ -11,30 +11,30 @@ function SelectionScreen({navigation}) {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('/home/oma/Android/testing/assets/background.png')}
+        source={require('./../assets/background.png')}
         style={styles.backgroundImage}>
         <View style={styles.menu}>
           <Image
             style={styles.logo}
-            source={require('/home/oma/Android/testing/assets/groupIcon.png')}
+            source={require('./../assets/groupIcon.png')}
           />
           <Text style={styles.text}>Snap it! Share it!</Text>
           <View style={styles.logos}>
             <Image
               style={{width: 35, height: 35}}
-              source={require('/home/oma/Android/testing/assets/facebook.png')}
+              source={require('./../assets/facebook.png')}
             />
             <Image
               style={{width: 35, height: 35}}
-              source={require('/home/oma/Android/testing/assets/insta.png')}
+              source={require('./../assets/insta.png')}
             />
             <Image
               style={{width: 35, height: 35}}
-              source={require('/home/oma/Android/testing/assets/linkedin.png')}
+              source={require('./../assets/linkedin.png')}
             />
             <Image
               style={{width: 35, height: 35}}
-              source={require('/home/oma/Android/testing/assets/twitter.png')}
+              source={require('./../assets/twitter.png')}
             />
           </View>
           <View style={styles.buttonContainer}>
