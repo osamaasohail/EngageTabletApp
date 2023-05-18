@@ -1,9 +1,8 @@
-
 import {View, Text, StyleSheet, TouchableOpacity, Button} from 'react-native';
 import Buttons from './Buttons';
 import uuid from 'react-native-uuid';
 
-const Card = ({title, content , navigation }) => {
+const Card = ({title, content, navigation}) => {
   return (
     <View style={styles.card}>
       <View style={styles.titleContainer}>
@@ -17,6 +16,7 @@ const Card = ({title, content , navigation }) => {
         );
       })}
       <View style={styles.buttonContainer}>
+        <Text>this is text</Text>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Disagree</Text>
         </TouchableOpacity>
@@ -34,12 +34,13 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     borderRadius: 36,
-    width: 536,
-    height: 820,
-    padding: 24,
-    margin: 32,
+    width: '90%',
+    height: '100%',
+    alignSelf:'center',
+    padding: 14,
+    // margin: 32,
     shadowColor: '#000',
-    gap:30,
+    // gap:30,
 
     shadowOffset: {
       width: 0,
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   title: {
-    fontSize: 24,
+    fontSize: 14,
     fontWeight: 'bold',
     color: 'black',
     marginBottom: 16,
@@ -64,9 +65,9 @@ const styles = StyleSheet.create({
   },
   content: {
     color: 'black',
-    fontSize: 16,
+    fontSize: 12,
     color: '#333',
-    marginTop:16,
+    marginTop: 16,
   },
 
   buttonContainer: {

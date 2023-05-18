@@ -1,4 +1,4 @@
-import {View, StyleSheet, ImageBackground} from 'react-native';
+import {View, StyleSheet, ImageBackground, ScrollView} from 'react-native';
 import Card from '../components/Card';
 
 function ConsentForm({navigation}) {
@@ -12,15 +12,19 @@ function ConsentForm({navigation}) {
     <ImageBackground
       source={require('./../assets/linearBg.png')}
       style={styles.backgroundImage}>
+      <ScrollView>
+
       <View style={styles.container}>
         <Card title={title} content={content} navigation={navigation} />
       </View>
+      </ScrollView>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   backgroundImage: {
+    
     flex: 1,
     resizeMode: 'cover', // or 'stretch' if you want the image to stretch to fill the container
   },
