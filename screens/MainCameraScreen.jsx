@@ -1,4 +1,3 @@
-// import {RNCamera} from 'react-native-camera';
 import {
   Button,
   Image,

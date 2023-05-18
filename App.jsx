@@ -28,7 +28,12 @@ function App() {
 
         <Stack.Screen name="SelectionScreen" component={SelectionScreen} />
 
+        
         <Stack.Screen name="MainCameraScreen" component={MainCameraScreen} />
+        <Stack.Screen
+          name="CameraScreenlayout"
+          component={CameraScreenlayout}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

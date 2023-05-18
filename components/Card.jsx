@@ -35,11 +35,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 36,
     width: 536,
-    height: 896,
+    height: 820,
     padding: 24,
     margin: 32,
     shadowColor: '#000',
-    gap: 18,
+    gap:30,
 
     shadowOffset: {
       width: 0,
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 16,
     color: '#333',
+    marginTop:16,
   },
 
   buttonContainer: {
