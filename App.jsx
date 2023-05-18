@@ -2,6 +2,7 @@
 import ConsentForm from './screens/ConsentForm';
 import SelectionScreen from './screens/SelectionScreen';
 import MainCameraScreen from './screens/MainCameraScreen';
+import CameraScreenlayout from './screens/CameraScreenlayout';
 import { NavigationContainer } from "@react-navigation/native";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -32,6 +33,10 @@ function App() {
         <Stack.Screen name="SelectionScreen" component={SelectionScreen} />
 
         <Stack.Screen name="MainCameraScreen" component={MainCameraScreen} />
+        <Stack.Screen
+          name="CameraScreenlayout"
+          component={CameraScreenlayout}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
