@@ -1,22 +1,88 @@
-import {View, Text, StyleSheet, TouchableOpacity, Button} from 'react-native';
-import Buttons from './Buttons';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Button,
+  PixelRatio,
+  Dimensions,
+} from 'react-native';
+// import Buttons from './Buttons';
 import uuid from 'react-native-uuid';
+import Adjust from "./Adjust"
 
-const Card = ({title, content, navigation}) => {
+const Card = ({ title, content, navigation }) => {
+  const fontScale = PixelRatio.getFontScale()
+  const windowWidth = Dimensions.get('window').width;
+  console.log(windowWidth)
+  const windowHeight = Dimensions.get('window').height;
+  console.log(windowHeight);
+  const getFontSize = size => size / fontScale 
+
+  const contentFontSize = windowWidth <= 370 ? getFontSize(12) : getFontSize(16)
+  console.log(contentFontSize)
+
   return (
-    <View style={styles.card}>
+    <View
+      style={{
+        marginTop: 24,
+        marginBottom: 24,
+        backgroundColor: '#fff',
+        borderRadius: 36,
+        width: '90%',
+        height: windowWidth <= 350 ? getFontSize(690) : getFontSize(840),
+        alignSelf: 'center',
+        padding: windowWidth <= 350 ? getFontSize(14) : getFontSize(24),
+        // margin: 32,
+        shadowColor: '#000',
+        // gap:30,
+
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 3,
+      }}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>{title}</Text>
+        <Text
+          style={{
+            fontSize: windowWidth * 0.04,
+            width: getFontSize(300),
+            textAlign: 'center',
+            color: 'black',
+            fontWeight: 'bold',
+            marginBottom: windowWidth * 0.01,
+          }}>
+          {title}
+        </Text>
+        {/* color: 'black', fontSize: 12, color: '#333', marginTop: 16, */}
       </View>
       {content.map(para => {
         return (
-          <Text key={uuid.v4()} style={styles.content}>
+          <Text
+            key={uuid.v4()}
+            style={{
+              color: 'black',
+              fontSize: windowWidth * 0.026,
+              color: '#333',
+              marginTop: windowWidth <= 350 ? getFontSize(14) : getFontSize(24),
+            }}>
             {para}
           </Text>
         );
       })}
-      <View style={styles.buttonContainer}>
-        <Text>this is text</Text>
+      <View
+        style={{
+          top: windowWidth <= 350 ? getFontSize(14) : getFontSize(68),
+          // flex: 1,
+          flexDirection: 'row',
+          // alignItem: 'centre',
+          // justifyContent: 'space-between',
+          // flex: 1,
+          alignSelf: 'center',
+        }}>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Disagree</Text>
         </TouchableOpacity>
@@ -35,8 +101,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 36,
     width: '90%',
-    height: '100%',
-    alignSelf:'center',
+    height: 690,
+    alignSelf: 'center',
     padding: 14,
     // margin: 32,
     shadowColor: '#000',
@@ -60,7 +126,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     marginBottom: 16,
-    width: 400,
+    width: 200,
     textAlign: 'center',
   },
   content: {
@@ -71,8 +137,8 @@ const styles = StyleSheet.create({
   },
 
   buttonContainer: {
-    top: 60,
-    // flex:1,
+    top: '5%',
+    // flex: 1,
     flexDirection: 'row',
     // alignItem: 'centre',
     // justifyContent: 'space-between',
@@ -81,17 +147,20 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: 'black',
-    width: 190,
-    height: 40,
-    padding: 10,
+    width: '35%',
+    height: '80%',
+    // padding: 2,
     borderRadius: 5,
-    margin: 5,
+    margin: 10,
   },
   buttonText: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
+    // alignSelf:'center'
+    justifyContent: 'center',
+    marginTop:4
   },
 });
 
