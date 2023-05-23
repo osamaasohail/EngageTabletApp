@@ -1,7 +1,6 @@
 import {View, StyleSheet, ImageBackground, ScrollView} from 'react-native';
 import Card from '../components/Card';
 
-
 function ConsentForm({navigation}) {
   const title = 'Consent for Collection, Use and Discloure of personal Data';
   const content = [
@@ -11,7 +10,7 @@ function ConsentForm({navigation}) {
   ];
   return (
     <ImageBackground
-      source={require('/home/oma/Desktop/Office_work/kachaak/EngageTabletApp/assets/linearBg.png')}
+      source={require('../assets/linearBg.png')}
       style={styles.backgroundImage}>
       <ScrollView>
         <View style={styles.container}>
@@ -24,7 +23,6 @@ function ConsentForm({navigation}) {
 
 const styles = StyleSheet.create({
   backgroundImage: {
-    
     flex: 1,
     resizeMode: 'cover', // or 'stretch' if you want the image to stretch to fill the container
     // paddingTop:24,
