@@ -6,7 +6,7 @@ const LoaderScreen = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate('ThankyouScreen');
-    }, 3000);
+    }, 2000);
   }, []);
   return (
     <ImageBackground

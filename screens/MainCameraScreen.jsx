@@ -10,7 +10,7 @@ import {
   PixelRatio,
   Dimensions,
 } from 'react-native';
-
+// import FastImage from 'react-native-fast-image';
 import {useState, useEffect, useRef} from 'react';
 import {useCameraDevices} from 'react-native-vision-camera';
 import {Camera} from 'react-native-vision-camera';
@@ -115,8 +115,7 @@ function MainCameraScreen({navigation}) {
               style={styles.camView}
               device={device}
               isActive={true}
-              photo={true}
-            />
+              photo={true}/>
           </>
           <View style={styles.bottomContainer}>
             <TouchableOpacity
@@ -292,6 +291,11 @@ const styles = StyleSheet.create({
     // flex: 1,
     height: '100%',
     borderRadius: 10,
+  },
+  image: {
+    width: 150,
+    height: 150,
+    borderRadius: 45, // For creating a circular frame around the image
   },
   bottomContainer: {
     backgroundColor: '#737373',
