@@ -31,7 +31,6 @@ const KachaakScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   backgroundImage: {
-    flex: 1,
     width: 300,
     height: 500,
     alignItems: 'center',

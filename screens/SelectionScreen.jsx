@@ -45,7 +45,7 @@ function SelectionScreen({navigation}) {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => navigation.navigate('SelectionScreen')}>
+              onPress={() => navigation.navigate('Boomerang')}>
               <Text style={styles.buttonText}>BOOMERANG</Text>
             </TouchableOpacity>
           </View>

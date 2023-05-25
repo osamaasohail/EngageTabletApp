@@ -9,6 +9,7 @@ import KachaakScreen from './screens/KachaakScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
+import Boomerang from './screens/Boomerang';
 
 import {
   SafeAreaView,
@@ -41,6 +42,8 @@ function App() {
           <Stack.Screen name="EmailScreen" component={EmailScreen} />
           <Stack.Screen name="LoaderScreen" component={LoaderScreen} />
           <Stack.Screen name="ThankyouScreen" component={ThankyouScreen} />
+          <Stack.Screen name="Boomerang" component={Boomerang} />
+
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
