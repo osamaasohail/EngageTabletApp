@@ -20,7 +20,6 @@ const KachaakScreen = ({ navigation }) => {
         source={require('./../assets/kachaak.png')}
         resizeMode="cover"
         style={{
-          flex: 1,
           width: windowWidth,
           height: windowHeight,
           alignItems: 'center',

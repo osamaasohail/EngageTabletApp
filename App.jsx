@@ -10,6 +10,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
 import Boomerang from './screens/Boomerang';
+import RecordedBoomerang from './screens/RecordedBoomerang';
 
 import {
   SafeAreaView,
@@ -43,6 +44,8 @@ function App() {
           <Stack.Screen name="LoaderScreen" component={LoaderScreen} />
           <Stack.Screen name="ThankyouScreen" component={ThankyouScreen} />
           <Stack.Screen name="Boomerang" component={Boomerang} />
+          <Stack.Screen name="RecordedBoomerang" component={RecordedBoomerang} />
+
 
         </Stack.Navigator>
       </NavigationContainer>
