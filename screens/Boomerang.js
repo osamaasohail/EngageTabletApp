@@ -89,7 +89,7 @@ export default function Boomerang(props) {
                                     source={require('./../assets/retake.png')}
                                 />
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => props.navigation.navigate('RecordedBoomerang')}>
+                            <TouchableOpacity onPress={() => props.navigation.navigate('EmailScreen')}>
                                 <Image
                                     style={styles.selectButtons}
                                     source={require('./../assets/continue.png')}

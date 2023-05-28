@@ -31,7 +31,7 @@ function EmailScreen({navigation}) {
               fontSize: windowWidth <= 350 ? getFontSize(16) : getFontSize(34),
               width: getFontSize(220),
               textAlign: 'center',
-              color: 'black',
+              // color: 'black',
               //   fontWeight: 'bold',
               marginBottom:
                 windowWidth <= 350 ? getFontSize(14) : getFontSize(38),
@@ -53,6 +53,7 @@ function EmailScreen({navigation}) {
             borderRadius: 10,
             color: '#333',
             fontSize: 20,
+            backgroundColor:'white'
           }}
         />
         <TouchableOpacity
