@@ -10,7 +10,9 @@ import {
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {photoSlice} from '../store/photoSlice';
-
+import { Dimensions } from 'react-native';
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 import {Card} from 'react-native-elements';
 // import uuid from 'react-native-uuid';
 
@@ -25,7 +27,7 @@ function DownloadScreen({navigation}) {
   const ImageItem = ({image}) => {
     const [selected, setSelected] = useState(false);
     return (
-      <View style={{padding: 12}}>
+      <View style={{padding: 12,}}>
         <TouchableOpacity
           onPress={() => {
             console.log('image clicked', image.id);
@@ -59,6 +61,7 @@ function DownloadScreen({navigation}) {
   const handleDownload = () => {
     console.log('Download button clicked');
     dispatch(actions.clearPictures());
+    dispatch(actions.clearCount());
     navigation.navigate('EmailScreen');
 
     // Write code to download the selected images here
@@ -97,10 +100,13 @@ function DownloadScreen({navigation}) {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    // backgroundColor:'red',
+    alignItems:'center'
+  },
   image: {
-    width: 175,
-    height: 280,
+    width: windowWidth*0.27,
+    height: windowHeight*0.27,
   },
   backgroundImage: {
     flex: 1,

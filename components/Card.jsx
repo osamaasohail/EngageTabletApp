@@ -30,7 +30,7 @@ const Card = ({ title, content, navigation }) => {
         backgroundColor: '#fff',
         borderRadius: 36,
         width: '90%',
-        height: windowWidth <= 350 ? getFontSize(690) : getFontSize(840),
+        height: windowHeight*0.9,
         alignSelf: 'center',
         padding: windowWidth <= 350 ? getFontSize(14) : getFontSize(24),
         // margin: 32,

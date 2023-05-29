@@ -13,9 +13,7 @@ function ConsentForm({navigation}) {
       source={require('../assets/linearBg.png')}
       style={styles.backgroundImage}>
       <ScrollView>
-        <View style={styles.container}>
           <Card title={title} content={content} navigation={navigation} />
-        </View>
       </ScrollView>
     </ImageBackground>
   );
