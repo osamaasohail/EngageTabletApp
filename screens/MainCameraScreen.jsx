@@ -14,34 +14,36 @@ import {
 import {useState, useEffect, useRef} from 'react';
 import {useCameraDevices} from 'react-native-vision-camera';
 import {Camera} from 'react-native-vision-camera';
-import uuid from 'react-native-uuid';
+import BanubaSdkManager, {EffectPlayerView} from '@banuba/react-native';
 
 import {useSelector, useDispatch} from 'react-redux';
 import {photoSlice} from '../store/photoSlice';
 // import {getProducts} from '../store/photoSlice';
-
+const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
 function MainCameraScreen({navigation}) {
+  let epRef = null;
+
   const [imageURL, setImageURL] = useState(false);
   const [takePhotoClicked, setTakePhotoClicked] = useState(false);
-  const [countdown, setCountdown] = useState(3);
+  // const [countdown, setCountdown] = useState(3);
   // const fontScale = PixelRatio.getFontScale();
-  const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
+  
   // const getFontSize = size => size / fontScale;
 
-  const dispatch = useDispatch();
-  const actions = photoSlice.actions;
-  const picturesList = useSelector(state => state.photoSlice.picturesList);
-  // console.log(picturesList);
-  const totalPictures = useSelector(state => state.photoSlice.totalPictures);
-  console.log(totalPictures);
-  console.log(totalPictures);
+  // const dispatch = useDispatch();
+  // const actions = photoSlice.actions;
+  // const picturesList = useSelector(state => state.photoSlice.picturesList);
+  // // console.log(picturesList);
+  // const totalPictures = useSelector(state => state.photoSlice.totalPictures);
+  // console.log(totalPictures);
+  // console.log(totalPictures);
 
-  const pictures = useSelector(state => state.photoSlice.pictures);
-  console.log(pictures);
+  // const pictures = useSelector(state => state.photoSlice.pictures);
+  // console.log(pictures);
 
-  const devices = useCameraDevices();
-  const device = devices.front;
+  // const devices = useCameraDevices();
+  // const device = devices.front;
 
   const camera = useRef();
   const handleCapture = async () => {
@@ -55,26 +57,46 @@ function MainCameraScreen({navigation}) {
     }
   };
 
-  const continueNext = () => {
-    setTakePhotoClicked(false);
-    dispatch(actions.increaseCount());
+  // const continueNext = () => {
+  //   setTakePhotoClicked(false);
+  //   dispatch(actions.increaseCount());
 
-    if (totalPictures <= 5) {
-      // dispatch(actions.addPhoto(`file://${imageURL}`));
-      dispatch(actions.addPhoto(`file://${imageURL}`));
-    }
-  };
+  //   if (totalPictures <= 5) {
+  //     // dispatch(actions.addPhoto(`file://${imageURL}`));
+  //     dispatch(actions.addPhoto(`file://${imageURL}`));
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   const getPermissions = async () => {
+  //     const permission = await Camera.requestCameraPermission();
+  //     console.log(`Camera permission status = ${permission}`);
+  //     if (permission === 'denied') await Linking.openSettings();
+  //   };
+  //   getPermissions();
+  // }, []);
 
   useEffect(() => {
-    const getPermissions = async () => {
-      const permission = await Camera.requestCameraPermission();
-      console.log(`Camera permission status = ${permission}`);
-      if (permission === 'denied') await Linking.openSettings();
+    BanubaSdkManager.initialize(
+      [],
+      'uF26KiX7/NeP40nBm/bwMzRKfl6KoEI4M7W1GH3HmBnIrkvZ5UFkfyXBArfdDPJ+ruILLhDjOrIbQji4RQLoFqZ6zIvTZOOVAcdrM/qGgzdNiv1jLHq12mexlUOOm7mxDBeuccYFsN5AggiYDzhEQAD42AxMTvFOvMP+3tmO8h9yOzUbFjK4AlOFL0jWE703NrxoOfEs7NLaKNi6gHPONlV+elD8Ee+8WUPVy3/S/Ei6GKpgiYyjbpZXtoxZp2Pp2Hs/r+Id2/7WwqUx4N3+g75l5B1UwBsQv73urcNXlx4AeW+3p5opSq9L4TGg0+ZrRBvzffK5uUkZyaDTNmyca7Bxn4Xq9RAcNUtdijPckDB9Z1kGxCTsnEtYif1xEk0tEfAfowi5yzbo7N2XajwXILQu8/PoWZTnRxZ4o59cfcl41AYTiUae07/ufUxnGtPJKFvArbVAGuHmMpNm0QEoxYn3skld5smlyGtEI+M88Eq55ldrV3XreiUyyuUMtVMXCHYJAYd371r/WqrZ3zrEJuHFXR9pLUVBPpdJ',
+    );
+
+    return () => {
+      BanubaSdkManager.stopPlayer();
     };
-    getPermissions();
   }, []);
 
-  if (device == null) return <Text>camera not available</Text>;
+  useEffect(() => {
+    if (epRef) {
+      BanubaSdkManager.attachView(epRef._nativeTag);
+      BanubaSdkManager.openCamera();
+      BanubaSdkManager.startPlayer();
+      BanubaSdkManager.loadEffect('effects/TrollGrandma');
+    }
+  }, []);
+
+  // if (device == null) return <Text>camera not available</Text>;
 
   return (
     <ImageBackground
@@ -109,14 +131,20 @@ function MainCameraScreen({navigation}) {
             elevation: 3,
             overflow: 'hidden',
           }}>
-          <>
-            <Camera
+          
+            {/* <Camera
               ref={camera}
               style={styles.camView}
               device={device}
               isActive={true}
-              photo={true}/>
-          </>
+              photo={true}/> */}
+            <View collapsable={false} style={{backgroundColor: 'orange', height:'100%'}}>
+              <EffectPlayerView
+                style={{flex: 1}}
+                ref={ref => (epRef = ref)}
+              />
+            </View>
+          
           <View style={styles.bottomContainer}>
             <TouchableOpacity
               style={styles.clickbtn}
@@ -299,7 +327,7 @@ const styles = StyleSheet.create({
   },
   bottomContainer: {
     backgroundColor: '#737373',
-    height: '19%',
+    height: windowHeight*0.12,
     // top: -25,
   },
 
