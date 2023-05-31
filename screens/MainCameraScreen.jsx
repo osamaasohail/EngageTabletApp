@@ -148,7 +148,7 @@ function MainCameraScreen({navigation}) {
           <View style={styles.bottomContainer}>
             <TouchableOpacity
               style={styles.clickbtn}
-              onPress={handleCapture}
+              // onPress={handleCapture}
               // disabled={isCapturing}
             >
               <Image
